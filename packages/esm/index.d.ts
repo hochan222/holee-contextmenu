@@ -1,1 +1,2 @@
-export * from './src';
+export * from './boilerplate';
+export * from './contextmenu';

@@ -2,9 +2,9 @@
   "name": "holee-contextmenu",
   "version": "1.0.0",
   "description": "React context menu",
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
+  "main": "./packages/cjs/index.js",
+  "module": "./packages/esm/index.js",
+  "types": "./packages/esm/index.d.ts",
   "repository": "https://github.com/hochan222/holee-contextmenu.git",
   "keywords": [
     "contextmenu",
@@ -16,7 +16,11 @@
   "author": "hochan222 <hochan049@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
     "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "typescript": "^4.3.5"
   },
   "scripts": {

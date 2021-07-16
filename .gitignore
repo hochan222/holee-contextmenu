@@ -9,3 +9,5 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 node_modules/
+/example/node_modules
+/example/build
