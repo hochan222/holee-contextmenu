@@ -1,6 +1,6 @@
 {
   "name": "holee-contextmenu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React context menu",
   "main": "./packages/cjs/index.js",
   "module": "./packages/esm/index.js",
