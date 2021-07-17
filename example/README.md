@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+## index.css
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```js
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-## Available Scripts
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+```
 
-In the project directory, you can run:
+## App.css
 
-### `yarn start`
+```js
+.red-box {
+  background-color: red;
+  width: 600px;
+  height: 300px;
+}
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## App.tsx
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```js
+import React, { useRef, useState } from 'react';
+import { Menu } from 'typescript-react-test';
+import './App.css';
 
-### `yarn test`
+function App() {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const [option, setOption] = useState<string | undefined>('null');
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  const menuOnClickHandler = (e: React.MouseEvent | React.KeyboardEvent<HTMLUListElement>) => {
+    const eventTarget = e.target as HTMLUListElement;
+    if (eventTarget) {
+      setOption(() => eventTarget.dataset.option);
+    }
+  };
 
-### `yarn build`
+  return (
+    <div className="App">
+      <h2>holee-context-menu</h2>
+      <p>⬇️ Click right mouse inside the red box ⬇️</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      <Menu outerRef={outerRef} menuOnClick={(e) => menuOnClickHandler(e)}>
+        <li data-option="profile">profile</li>
+        <li data-option="send-message">send message</li>
+        <li data-option="add-friend">add friend</li>
+        <li data-option="play-game">play game</li>
+        <li data-option="register-admin">register admin(dismissal)</li>
+        <li data-option="block">block(unblock)</li>
+        <li data-option="mute">mute(unmute)</li>
+        <li data-option="forced-out">forced out</li>
+      </Menu>
+      <div ref={outerRef} className="red-box"></div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      <p>
+        <strong>eventTarget.dataset.option: </strong> {option}
+      </p>
+    </div>
+  );
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+export default App;
+```
