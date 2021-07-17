@@ -6,11 +6,74 @@
 
 <img align="middle" src="https://user-images.githubusercontent.com/22424891/126034890-25346bc1-e75b-4569-b0a8-c561b3781cda.gif" height="300px" />
 
-## How to use?
+## Installing holee-contextmenu
+
+```sh
+$ yarn add holee-contextmenu
+
+# or
+
+$ npm i holee-contextmenu
+```
+
+## Usage
+
+1. Create a useref.
+
+```javascript
+const outerRef = useRef<HTMLDivElement>(null);
+```
+
+2. Designate as ref to the div tag you want to apply the context menu to.
+
+```javascript
+<div ref={outerRef} className="red-box"></div>
+```
+
+3. Import the menu and create a menu above the div tag.
+
+```javascript
+import { Menu } from 'holee-contextmenu';
+```
+
+```javascript
+<Menu outerRef={outerRef} menuOnClick={(e) => menuOnClickHand(e)}>
+</Menu>
+<div ref={outerRef} className="red-box"></div>
+```
+
+4. A menu list of contextmenu can be created by passing the li tag as children in the menu. (A `data-option` must be specified.)
+
+```javascript
+<Menu outerRef={outerRef} menuOnClick={(e) => menuOnClickHand(e)}>
+  <li data-option="profile">profile</li>
+  <li data-option="send-message">send message</li>
+  <li data-option="add-friend">add friend</li>
+  <li data-option="play-game">play game</li>
+  <li data-option="register-admin">register admin(dismissal)</li>
+  <li data-option="block">block(unblock)</li>
+  <li data-option="mute">mute(unmute)</li>
+  <li data-option="forced-out">forced out</li>
+</Menu>
+<div ref={outerRef} className="red-box"></div>
+```
+
+5. `menuOnClickHandler` defines an onclick function that is executed when the list is clicked.
+
+```javascript
+  const menuOnClickHandler = (e: React.MouseEvent | React.KeyboardEvent<HTMLUListElement>) => {
+    const eventTarget = e.target as HTMLUListElement;
+    if (eventTarget) {
+      setOption(() => eventTarget.dataset.option);
+    }
+  };
+```
+
+6. Below is the final code, please refer to the [example code](./example) for details.
 
 ```javascript
 import React, { useRef, useState } from 'react';
-import { Menu } from 'typescript-react-test';
+import { Menu } from 'holee-contextmenu';
 import './App.css';
 
 function App() {
