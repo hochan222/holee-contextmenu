@@ -2,7 +2,13 @@
 
 <h3 align="middle">Simple react contextmenu (Typescript support)</h3>
 
-![React](https://img.shields.io/badge/React-282c34?logo=React) ![Typescript](https://img.shields.io/badge/Typescript-white?logo=Typescript)
+![React](https://img.shields.io/badge/React-282c34?logo=React) ![Typescript](https://img.shields.io/badge/Typescript-white?logo=Typescript) [![npm version](https://img.shields.io/npm/v/holee-contextmenu?style=flat-square)](https://www.npmjs.com/package/holee-contextmenu) [![npm license](https://img.shields.io/npm/l/holee-contextmenu?style=flat-square)](https://github.com/hochan222/holee-contextmenu/blob/master/LICENSE) [![npm bundle size](https://img.shields.io/bundlephobia/min/holee-contextmenu?style=flat-square)](https://bundlephobia.com/result?p=holee-contextmenu) [![dependencies](https://img.shields.io/david/hochan222/holee-contextmenu?style=flat-square)](https://david-dm.org/nfinished/react-tiny-contextmenu)
+
+<!-- [![maintainability](https://img.shields.io/codeclimate/maintainability/hochan222/holee-contextmenu?style=flat-square)](https://codeclimate.com/github/hochan222/holee-contextmenu)
+[![Code Climate coverage](https://img.shields.io/codeclimate/coverage/hochan222/holee-contextmenu?style=flat-square)](https://codeclimate.com/github/hochan222/holee-contextmenu) -->
+
+<!-- ![requires react >=16.8](https://img.shields.io/npm/dependency-version/holee-contextmenu/peer/react?style=flat-square) -->
+
 
 <img align="middle" src="https://user-images.githubusercontent.com/22424891/126034890-25346bc1-e75b-4569-b0a8-c561b3781cda.gif" height="300px" />
 
