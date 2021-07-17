@@ -5,7 +5,10 @@
   "main": "./packages/cjs/index.js",
   "module": "./packages/esm/index.js",
   "types": "./packages/esm/index.d.ts",
-  "repository": "https://github.com/hochan222/holee-contextmenu.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hochan222/holee-contextmenu.git"
+  },
   "keywords": [
     "contextmenu",
     "menu",
