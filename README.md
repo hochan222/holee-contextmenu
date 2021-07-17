@@ -1,6 +1,6 @@
 # holee contextmenu
 
-<img align="center" src="https://user-images.githubusercontent.com/22424891/126034890-25346bc1-e75b-4569-b0a8-c561b3781cda.gif" height="300px" />
+<img align="middle" src="https://user-images.githubusercontent.com/22424891/126034890-25346bc1-e75b-4569-b0a8-c561b3781cda.gif" height="300px" />
 
 ## How to use?
 
