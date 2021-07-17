@@ -45,7 +45,7 @@ export var Menu = function (_a) {
         showMenu(false);
     };
     if (menu) {
-        return (React.createElement("ul", { className: "menu", style: { top: yPos, left: xPos }, onClick: function (e) { return menuOnClickHandler(e); }, onKeyDown: function (e) { return menuOnKeyDownHandler(e); }, role: "menu" }, children));
+        return (React.createElement("ul", { className: "holee-menu", style: { top: yPos, left: xPos }, onClick: function (e) { return menuOnClickHandler(e); }, onKeyDown: function (e) { return menuOnKeyDownHandler(e); }, role: "menu" }, children));
     }
     return null;
 };

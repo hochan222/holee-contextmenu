@@ -1,4 +1,4 @@
-.menu {
+.holee-menu {
   position: absolute;
   z-index: 1;
 
@@ -12,7 +12,7 @@
   background-color: #fff;
 }
 
-.menu li {
+.holee-menu li {
   padding: 0.3em 1em;
 
   font-size: 12px;
@@ -26,6 +26,6 @@
   background-color: #fff;
 }
 
-.menu li:hover {
+.holee-menu li:hover {
   background-color: #f7fafc;
 }

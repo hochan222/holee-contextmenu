@@ -67,7 +67,7 @@ export const Menu = ({
   if (menu) {
     return (
       <ul
-        className="menu"
+        className="holee-menu"
         style={{ top: yPos, left: xPos }}
         onClick={(e) => menuOnClickHandler(e)}
         onKeyDown={(e) => menuOnKeyDownHandler(e)}
