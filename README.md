@@ -15,7 +15,6 @@ function App() {
     const eventTarget = e.target as HTMLUListElement;
     if (eventTarget) {
       setOption(() => eventTarget.dataset.option);
-      console.log(eventTarget.dataset.option);
     }
   };
 
