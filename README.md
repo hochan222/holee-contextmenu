@@ -1,6 +1,8 @@
 <h1 align="middle">holee-contextmenu</h1>
 
-<h3 align="middle">simple react contextmenu (Typescript support)</h3>
+<h3 align="middle">Simple react contextmenu (Typescript support)</h3>
+
+![React](https://img.shields.io/badge/React-282c34?logo=React) ![Typescript](https://img.shields.io/badge/Typescript-white?logo=Typescript)
 
 <img align="middle" src="https://user-images.githubusercontent.com/22424891/126034890-25346bc1-e75b-4569-b0a8-c561b3781cda.gif" height="300px" />
 
