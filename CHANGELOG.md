@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/hochan222/holee-contextmenu/compare/v1.0.5...v1.0.6) (2021-07-17)
+
+
+### Docs
+
+* Add detailed description ([2164a64](https://github.com/hochan222/holee-contextmenu/commit/2164a64247997dcbe79c2705f618c84493e49c27))
+* add example readme ([cce7d7c](https://github.com/hochan222/holee-contextmenu/commit/cce7d7c76166c340a716bf37cc913975f7e077a7))
+
 ### [1.0.5](https://github.com/hochan222/holee-contextmenu/compare/v1.0.4...v1.0.5) (2021-07-17)
 
 
