@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/holee-contextmenu/static/css/main.b98f6083.chunk.css",
+    "main.js": "/holee-contextmenu/static/js/main.870fce77.chunk.js",
+    "main.js.map": "/holee-contextmenu/static/js/main.870fce77.chunk.js.map",
+    "runtime-main.js": "/holee-contextmenu/static/js/runtime-main.1db70248.js",
+    "runtime-main.js.map": "/holee-contextmenu/static/js/runtime-main.1db70248.js.map",
+    "static/js/2.d4cf5065.chunk.js": "/holee-contextmenu/static/js/2.d4cf5065.chunk.js",
+    "static/js/2.d4cf5065.chunk.js.map": "/holee-contextmenu/static/js/2.d4cf5065.chunk.js.map",
+    "static/js/3.6dce4332.chunk.js": "/holee-contextmenu/static/js/3.6dce4332.chunk.js",
+    "static/js/3.6dce4332.chunk.js.map": "/holee-contextmenu/static/js/3.6dce4332.chunk.js.map",
+    "index.html": "/holee-contextmenu/index.html",
+    "static/css/main.b98f6083.chunk.css.map": "/holee-contextmenu/static/css/main.b98f6083.chunk.css.map",
+    "static/js/2.d4cf5065.chunk.js.LICENSE.txt": "/holee-contextmenu/static/js/2.d4cf5065.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1db70248.js",
+    "static/js/2.d4cf5065.chunk.js",
+    "static/css/main.b98f6083.chunk.css",
+    "static/js/main.870fce77.chunk.js"
+  ]
+}
