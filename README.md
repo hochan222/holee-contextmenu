@@ -1,4 +1,6 @@
-# holee contextmenu
+<h1 align="middle">holee-contextmenu</h1>
+
+<h3 align="middle">simple react contextmenu (Typescript support)</h3>
 
 <img align="middle" src="https://user-images.githubusercontent.com/22424891/126034890-25346bc1-e75b-4569-b0a8-c561b3781cda.gif" height="300px" />
 
