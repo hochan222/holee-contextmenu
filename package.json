@@ -1,6 +1,6 @@
 {
   "name": "holee-contextmenu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React context menu",
   "main": "./packages/cjs/index.js",
   "module": "./packages/esm/index.js",
@@ -8,7 +8,8 @@
   "repository": "https://github.com/hochan222/holee-contextmenu.git",
   "keywords": [
     "contextmenu",
-    "menu"
+    "menu",
+    "typescript contextmenu"
   ],
   "bugs": {
     "url": "https://github.com/hochan222/holee-contextmenu/issues"
