@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/hochan222/holee-contextmenu/compare/v1.0.6...v1.0.8) (2021-07-20)
+
+
+### Docs
+
+* add badges ([99c6713](https://github.com/hochan222/holee-contextmenu/commit/99c67137fc7ecf108595db232ef814f24504819c))
+
+### [1.0.7](https://github.com/hochan222/holee-contextmenu/compare/v1.0.6...v1.0.7) (2021-07-20)
+
+
+### Docs
+
+* add badges ([99c6713](https://github.com/hochan222/holee-contextmenu/commit/99c67137fc7ecf108595db232ef814f24504819c))
+
 ### [1.0.6](https://github.com/hochan222/holee-contextmenu/compare/v1.0.5...v1.0.6) (2021-07-17)
 
 
