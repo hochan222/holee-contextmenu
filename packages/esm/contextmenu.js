@@ -31,7 +31,7 @@ var useContextMenu = function (outerRef) {
     });
     return { xPos: xPos, yPos: yPos, menu: menu, showMenu: showMenu };
 };
-export var Menu = function (_a) {
+export var ContextMenu = function (_a) {
     var outerRef = _a.outerRef, menuOnClick = _a.menuOnClick, children = _a.children;
     var _b = useContextMenu(outerRef), xPos = _b.xPos, yPos = _b.yPos, menu = _b.menu, showMenu = _b.showMenu;
     var menuOnClickHandler = function (e) {
