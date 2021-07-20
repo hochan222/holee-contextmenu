@@ -19,7 +19,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Menu = void 0;
+exports.ContextMenu = void 0;
 var react_1 = __importStar(require("react"));
 require("./contextmenu.css");
 var useContextMenu = function (outerRef) {
@@ -53,7 +53,7 @@ var useContextMenu = function (outerRef) {
     });
     return { xPos: xPos, yPos: yPos, menu: menu, showMenu: showMenu };
 };
-var Menu = function (_a) {
+var ContextMenu = function (_a) {
     var outerRef = _a.outerRef, menuOnClick = _a.menuOnClick, children = _a.children;
     var _b = useContextMenu(outerRef), xPos = _b.xPos, yPos = _b.yPos, menu = _b.menu, showMenu = _b.showMenu;
     var menuOnClickHandler = function (e) {
@@ -71,4 +71,4 @@ var Menu = function (_a) {
     }
     return null;
 };
-exports.Menu = Menu;
+exports.ContextMenu = ContextMenu;

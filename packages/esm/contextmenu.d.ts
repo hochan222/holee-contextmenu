@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
 import './contextmenu.css';
-export declare const Menu: ({ outerRef, menuOnClick, children, }: {
+export interface ContextMenuProps {
     outerRef: React.RefObject<HTMLDivElement>;
     menuOnClick: (event: React.MouseEvent | React.KeyboardEvent<HTMLUListElement>) => void;
     children: ReactNode;
-}) => JSX.Element | null;
+}
+export declare const ContextMenu: ({ outerRef, menuOnClick, children }: ContextMenuProps) => JSX.Element | null;

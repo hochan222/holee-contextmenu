@@ -1,6 +1,12 @@
 import React, { useState, useCallback, useEffect, ReactNode } from 'react';
 import './contextmenu.css';
 
+export interface ContextMenuProps {
+  outerRef: React.RefObject<HTMLDivElement>;
+  menuOnClick: (event: React.MouseEvent | React.KeyboardEvent<HTMLUListElement>) => void;
+  children: ReactNode;
+}
+
 const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
   const [xPos, setXPos] = useState('0px');
   const [yPos, setYPos] = useState('0px');
@@ -41,15 +47,7 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
   return { xPos, yPos, menu, showMenu };
 };
 
-export const Menu = ({
-  outerRef,
-  menuOnClick,
-  children,
-}: {
-  outerRef: React.RefObject<HTMLDivElement>;
-  menuOnClick: (event: React.MouseEvent | React.KeyboardEvent<HTMLUListElement>) => void;
-  children: ReactNode;
-}) => {
+export const ContextMenu = ({ outerRef, menuOnClick, children }: ContextMenuProps) => {
   const { xPos, yPos, menu, showMenu } = useContextMenu(outerRef);
 
   const menuOnClickHandler = (e: React.MouseEvent) => {

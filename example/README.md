@@ -32,7 +32,7 @@ code {
 
 ```js
 import React, { useRef, useState } from 'react';
-import { Menu } from 'typescript-react-test';
+import { ContextMenu } from 'typescript-react-test';
 import './App.css';
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
       <h2>holee-context-menu</h2>
       <p>⬇️ Click right mouse inside the red box ⬇️</p>
 
-      <Menu outerRef={outerRef} menuOnClick={(e) => menuOnClickHandler(e)}>
+      <ContextMenu outerRef={outerRef} menuOnClick={(e) => menuOnClickHandler(e)}>
         <li data-option="profile">profile</li>
         <li data-option="send-message">send message</li>
         <li data-option="add-friend">add friend</li>
@@ -60,7 +60,7 @@ function App() {
         <li data-option="block">block(unblock)</li>
         <li data-option="mute">mute(unmute)</li>
         <li data-option="forced-out">forced out</li>
-      </Menu>
+      </ContextMenu>
       <div ref={outerRef} className="red-box"></div>
 
       <p>
