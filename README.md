@@ -9,7 +9,6 @@
 
 <!-- ![requires react >=16.8](https://img.shields.io/npm/dependency-version/holee-contextmenu/peer/react?style=flat-square) -->
 
-
 <img align="middle" src="https://user-images.githubusercontent.com/22424891/126034890-25346bc1-e75b-4569-b0a8-c561b3781cda.gif" height="300px" />
 
 ## Installing holee-contextmenu
@@ -27,7 +26,7 @@ $ npm i holee-contextmenu
 1. Create a useref.
 
 ```javascript
-const outerRef = useRef<HTMLDivElement>(null);
+const outerRef = useRef < HTMLDivElement > null;
 ```
 
 2. Designate as ref to the div tag you want to apply the context menu to.
@@ -39,19 +38,19 @@ const outerRef = useRef<HTMLDivElement>(null);
 3. Import the menu and create a menu above the div tag.
 
 ```javascript
-import { Menu } from 'holee-contextmenu';
+import { ContextMenu } from 'holee-contextmenu';
 ```
 
 ```javascript
-<Menu outerRef={outerRef} menuOnClick={(e) => menuOnClickHand(e)}>
-</Menu>
+<ContextMenu outerRef={outerRef} menuOnClick={(e) => menuOnClickHand(e)}>
+</ContextMenu>
 <div ref={outerRef} className="red-box"></div>
 ```
 
 4. A menu list of contextmenu can be created by passing the li tag as children in the menu. (A `data-option` must be specified.)
 
 ```javascript
-<Menu outerRef={outerRef} menuOnClick={(e) => menuOnClickHand(e)}>
+<ContextMenu outerRef={outerRef} menuOnClick={(e) => menuOnClickHand(e)}>
   <li data-option="profile">profile</li>
   <li data-option="send-message">send message</li>
   <li data-option="add-friend">add friend</li>
@@ -60,7 +59,7 @@ import { Menu } from 'holee-contextmenu';
   <li data-option="block">block(unblock)</li>
   <li data-option="mute">mute(unmute)</li>
   <li data-option="forced-out">forced out</li>
-</Menu>
+</ContextMenu>
 <div ref={outerRef} className="red-box"></div>
 ```
 
@@ -79,7 +78,7 @@ import { Menu } from 'holee-contextmenu';
 
 ```javascript
 import React, { useRef, useState } from 'react';
-import { Menu } from 'holee-contextmenu';
+import { ContextMenu } from 'holee-contextmenu';
 import './App.css';
 
 function App() {
@@ -98,7 +97,7 @@ function App() {
       <h2>holee-context-menu</h2>
       <p>⬇️ Click right mouse inside the red box ⬇️</p>
 
-      <Menu outerRef={outerRef} menuOnClick={(e) => menuOnClickHandler(e)}>
+      <ContextMenu outerRef={outerRef} menuOnClick={(e) => menuOnClickHandler(e)}>
         <li data-option="profile">profile</li>
         <li data-option="send-message">send message</li>
         <li data-option="add-friend">add friend</li>
@@ -107,7 +106,7 @@ function App() {
         <li data-option="block">block(unblock)</li>
         <li data-option="mute">mute(unmute)</li>
         <li data-option="forced-out">forced out</li>
-      </Menu>
+      </ContextMenu>
       <div ref={outerRef} className="red-box"></div>
 
       <p>
