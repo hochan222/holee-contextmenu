@@ -21,6 +21,10 @@ $ yarn add holee-contextmenu
 $ npm i holee-contextmenu
 ```
 
+## Project philosophy
+
+High customization and intuition are the best.
+
 ## Usage
 
 1. Create a useref.
