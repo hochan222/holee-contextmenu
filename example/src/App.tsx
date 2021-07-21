@@ -18,7 +18,7 @@ function App() {
       <h2>holee-context-menu</h2>
       <p>⬇️ Click right mouse inside the red box ⬇️</p>
 
-      <ContextMenu className="ul-class-name" outerRef={outerRef} menuOnClick={(e) => menuOnClickHandler(e)}>
+      <ContextMenu outerRef={outerRef} menuOnClick={(e) => menuOnClickHandler(e)}>
         <li data-option="profile">profile</li>
         <li data-option="send-message">send message</li>
         <li data-option="add-friend">add friend</li>

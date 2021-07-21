@@ -118,3 +118,29 @@ function App() {
 
 export default App;
 ```
+
+## Custom Style
+
+Style can be specified through className:
+
+<img src="https://user-images.githubusercontent.com/22424891/126430208-9f2ba8b1-8bef-46ac-b374-b2d6c1f02ee8.png" height="300px"/>
+
+```css
+.ul-class-name li {
+  padding: 10px;
+  color: blue;
+}
+```
+
+```js
+<ContextMenu className="ul-class-name" outerRef={outerRef} menuOnClick={(e = menuOnClickHandler(e))}>
+  <li data-option="profile">profile</li>
+  <li data-option="send-message">send message</li>
+  <li data-option="add-friend">add friend</li>
+  <li data-option="play-game">play game</li>
+  <li data-option="register-admin">register admin(dismissal)</li>
+  <li data-option="block">block(unblock)</li>
+  <li data-option="mute">mute(unmute)</li>
+  <li data-option="forced-out">forced out</li>
+</ContextMenu>
+```

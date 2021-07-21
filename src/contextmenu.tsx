@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect, ReactNode } from 'react';
 import './contextmenu.css';
 
 export interface ContextMenuProps {
+  className?: string;
   outerRef: React.RefObject<HTMLDivElement>;
   menuOnClick: (event: React.MouseEvent | React.KeyboardEvent<HTMLUListElement>) => void;
   children: ReactNode;
@@ -47,7 +48,7 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
   return { xPos, yPos, menu, showMenu };
 };
 
-export const ContextMenu = ({ outerRef, menuOnClick, children }: ContextMenuProps) => {
+export const ContextMenu = ({ className, outerRef, menuOnClick, children }: ContextMenuProps) => {
   const { xPos, yPos, menu, showMenu } = useContextMenu(outerRef);
 
   const menuOnClickHandler = (e: React.MouseEvent) => {
@@ -65,7 +66,7 @@ export const ContextMenu = ({ outerRef, menuOnClick, children }: ContextMenuProp
   if (menu) {
     return (
       <ul
-        className="holee-menu"
+        className={'holee-menu' + (className ? ` ${className}` : '')}
         style={{ top: yPos, left: xPos }}
         onClick={(e) => menuOnClickHandler(e)}
         onKeyDown={(e) => menuOnKeyDownHandler(e)}

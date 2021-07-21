@@ -32,7 +32,7 @@ var useContextMenu = function (outerRef) {
     return { xPos: xPos, yPos: yPos, menu: menu, showMenu: showMenu };
 };
 export var ContextMenu = function (_a) {
-    var outerRef = _a.outerRef, menuOnClick = _a.menuOnClick, children = _a.children;
+    var className = _a.className, outerRef = _a.outerRef, menuOnClick = _a.menuOnClick, children = _a.children;
     var _b = useContextMenu(outerRef), xPos = _b.xPos, yPos = _b.yPos, menu = _b.menu, showMenu = _b.showMenu;
     var menuOnClickHandler = function (e) {
         e.stopPropagation();
@@ -45,7 +45,7 @@ export var ContextMenu = function (_a) {
         showMenu(false);
     };
     if (menu) {
-        return (React.createElement("ul", { className: "holee-menu", style: { top: yPos, left: xPos }, onClick: function (e) { return menuOnClickHandler(e); }, onKeyDown: function (e) { return menuOnKeyDownHandler(e); }, role: "menu" }, children));
+        return (React.createElement("ul", { className: 'holee-menu' + (className ? " " + className : ''), style: { top: yPos, left: xPos }, onClick: function (e) { return menuOnClickHandler(e); }, onKeyDown: function (e) { return menuOnKeyDownHandler(e); }, role: "menu" }, children));
     }
     return null;
 };
