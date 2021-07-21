@@ -23,7 +23,7 @@ $ npm i holee-contextmenu
 
 ## Project philosophy
 
-High customization and intuition are the best.
+High customization and intuition.
 
 ## Usage
 
