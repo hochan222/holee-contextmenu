@@ -58,11 +58,14 @@ var ContextMenu = function (_a) {
     var _b = useContextMenu(outerRef), xPos = _b.xPos, yPos = _b.yPos, menu = _b.menu, showMenu = _b.showMenu;
     var menuOnClickHandler = function (e) {
         e.stopPropagation();
+        console.log(e.currentTarget.offsetHeight);
         menuOnClick(e);
         showMenu(false);
     };
     var menuOnKeyDownHandler = function (e) {
         e.stopPropagation();
+        console.log(e.currentTarget.offsetHeight);
+        console.log(e.currentTarget.offsetWidth);
         menuOnClick(e);
         showMenu(false);
     };

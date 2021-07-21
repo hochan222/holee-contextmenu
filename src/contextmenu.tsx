@@ -51,7 +51,7 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
 export const ContextMenu = ({ className, outerRef, menuOnClick, children }: ContextMenuProps) => {
   const { xPos, yPos, menu, showMenu } = useContextMenu(outerRef);
 
-  const menuOnClickHandler = (e: React.MouseEvent) => {
+  const menuOnClickHandler = (e: React.MouseEvent<HTMLUListElement>) => {
     e.stopPropagation();
     menuOnClick(e);
     showMenu(false);
