@@ -10,8 +10,10 @@
     "url": "git+https://github.com/hochan222/holee-contextmenu.git"
   },
   "keywords": [
-    "contextmenu",
     "menu",
+    "dropdown",
+    "contextmenu",
+    "react contextmenu",
     "typescript contextmenu"
   ],
   "bugs": {
