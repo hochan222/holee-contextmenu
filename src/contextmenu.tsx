@@ -8,14 +8,36 @@ export interface ContextMenuProps {
   children: ReactNode;
 }
 
-const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
+/*
+ ** The function was created expecting to be used for ul,
+ ** and always expects to have a value of DOMRect.
+ */
+const findOutOfViewportPosition = (elementRef: React.RefObject<HTMLUListElement>): string => {
+  const clientRect = elementRef.current?.getBoundingClientRect() as DOMRect;
+  if (!clientRect) {
+    return '';
+  }
+  if (window.innerWidth <= clientRect.right) {
+    return 'right';
+  } else if (window.innerHeight <= clientRect.bottom) {
+    return 'bottom';
+  }
+  return '';
+};
+
+const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>, ulRef: React.RefObject<HTMLUListElement>) => {
   const [xPos, setXPos] = useState('0px');
   const [yPos, setYPos] = useState('0px');
   const [menu, showMenu] = useState(false);
 
   const handleContextMenu = useCallback(
     (event) => {
-      setXPos(`${event.pageX}px`);
+      console.log(findOutOfViewportPosition(ulRef));
+      if (findOutOfViewportPosition(ulRef) === 'right') {
+        setXPos(`100px`);
+      } else {
+        setXPos(`${event.pageX}px`);
+      }
       setYPos(`${event.pageY}px`);
       if (
         outerRef.current!.getBoundingClientRect().top <= event.pageY &&
@@ -48,32 +70,12 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
   return { xPos, yPos, menu, showMenu };
 };
 
-/*
- ** The function was created expecting to be used for ul,
- ** and always expects to have a value of DOMRect.
- */
-const findOutOfViewportPosition = (elementRef: React.RefObject<HTMLUListElement>): string => {
-  const clientRect = elementRef.current?.getBoundingClientRect() as DOMRect;
-  if (window.innerWidth <= clientRect.right) {
-    return 'right';
-  } else if (window.innerHeight <= clientRect.bottom) {
-    return 'bottom';
-  }
-  return '';
-};
-
 export const ContextMenu = ({ className, outerRef, menuOnClick, children }: ContextMenuProps) => {
-  const { xPos, yPos, menu, showMenu } = useContextMenu(outerRef);
-  const ulElement = React.useRef<HTMLUListElement>(null);
-  const [checkViewport, setCheckViewport] = useState<string>('');
+  const ulRef = React.useRef<HTMLUListElement>(null);
+  const { xPos, yPos, menu, showMenu } = useContextMenu(outerRef, ulRef);
 
   const menuOnClickHandler = (e: React.MouseEvent<HTMLUListElement>) => {
     e.stopPropagation();
-    if (findOutOfViewportPosition(ulElement) === 'right') {
-      setCheckViewport('right');
-    } else {
-      setCheckViewport('');
-    }
     menuOnClick(e);
     showMenu(false);
   };
@@ -88,11 +90,11 @@ export const ContextMenu = ({ className, outerRef, menuOnClick, children }: Cont
     return (
       <ul
         className={'holee-menu' + (className ? ` ${className}` : '')}
-        style={{ top: yPos, left: checkViewport === 'right' ? '100px' : xPos }}
+        style={{ top: yPos, left: xPos }}
         onClick={(e) => menuOnClickHandler(e)}
         onKeyDown={(e) => menuOnKeyDownHandler(e)}
         role="menu"
-        ref={ulElement}
+        ref={ulRef}
       >
         {children}
       </ul>
