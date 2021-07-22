@@ -22,43 +22,52 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContextMenu = void 0;
 var react_1 = __importStar(require("react"));
 require("./contextmenu.css");
-/*
- ** The function was created expecting to be used for ul,
- ** and always expects to have a value of DOMRect.
- */
-var findOutOfViewportPosition = function (elementRef) {
-    var _a;
-    var clientRect = (_a = elementRef.current) === null || _a === void 0 ? void 0 : _a.getBoundingClientRect();
-    if (!clientRect) {
-        return '';
+var findOutOfViewportPosition = function (rightPosition, bottomPosition) {
+    if (window.innerWidth <= rightPosition && window.innerHeight <= bottomPosition) {
+        return 'diagonal';
     }
-    if (window.innerWidth <= clientRect.right) {
+    else if (window.innerWidth <= rightPosition) {
         return 'right';
     }
-    else if (window.innerHeight <= clientRect.bottom) {
+    else if (window.innerHeight <= bottomPosition) {
         return 'bottom';
     }
     return '';
 };
-var useContextMenu = function (outerRef, ulRef) {
+var $ = function (selector) { return document.querySelector(selector); };
+var useContextMenu = function (outerRef) {
     var _a = react_1.useState('0px'), xPos = _a[0], setXPos = _a[1];
     var _b = react_1.useState('0px'), yPos = _b[0], setYPos = _b[1];
     var _c = react_1.useState(false), menu = _c[0], showMenu = _c[1];
     var handleContextMenu = react_1.useCallback(function (event) {
-        console.log(findOutOfViewportPosition(ulRef));
-        if (findOutOfViewportPosition(ulRef) === 'right') {
-            setXPos("100px");
-        }
-        else {
-            setXPos(event.pageX + "px");
-        }
-        setYPos(event.pageY + "px");
+        var _a;
         if (outerRef.current.getBoundingClientRect().top <= event.pageY &&
             outerRef.current.getBoundingClientRect().bottom >= event.pageY &&
             outerRef.current.getBoundingClientRect().left <= event.pageX &&
             outerRef.current.getBoundingClientRect().right >= event.pageX) {
             event.preventDefault();
             showMenu(true);
+            var ulBoundingClientRect = (_a = $('.holee-menu')) === null || _a === void 0 ? void 0 : _a.getBoundingClientRect();
+            if (ulBoundingClientRect) {
+                var position = findOutOfViewportPosition(ulBoundingClientRect.right, ulBoundingClientRect === null || ulBoundingClientRect === void 0 ? void 0 : ulBoundingClientRect.bottom);
+                console.log(position);
+                if (position === 'diagonal') {
+                    setXPos("100px");
+                    setYPos(event.pageY + "px");
+                }
+                else if (position === 'right') {
+                    setXPos("100px");
+                    setYPos(event.pageY + "px");
+                }
+                else if (position === 'bottom') {
+                    setXPos("100px");
+                    setYPos(event.pageY + "px");
+                }
+                else {
+                    setXPos(event.pageX + "px");
+                    setYPos(event.pageY + "px");
+                }
+            }
         }
         else {
             showMenu(false);
@@ -79,8 +88,7 @@ var useContextMenu = function (outerRef, ulRef) {
 };
 var ContextMenu = function (_a) {
     var className = _a.className, outerRef = _a.outerRef, menuOnClick = _a.menuOnClick, children = _a.children;
-    var ulRef = react_1.default.useRef(null);
-    var _b = useContextMenu(outerRef, ulRef), xPos = _b.xPos, yPos = _b.yPos, menu = _b.menu, showMenu = _b.showMenu;
+    var _b = useContextMenu(outerRef), xPos = _b.xPos, yPos = _b.yPos, menu = _b.menu, showMenu = _b.showMenu;
     var menuOnClickHandler = function (e) {
         e.stopPropagation();
         menuOnClick(e);
@@ -92,7 +100,7 @@ var ContextMenu = function (_a) {
         showMenu(false);
     };
     if (menu) {
-        return (react_1.default.createElement("ul", { className: 'holee-menu' + (className ? " " + className : ''), style: { top: yPos, left: xPos }, onClick: function (e) { return menuOnClickHandler(e); }, onKeyDown: function (e) { return menuOnKeyDownHandler(e); }, role: "menu", ref: ulRef }, children));
+        return (react_1.default.createElement("ul", { className: 'holee-menu' + (className ? " " + className : ''), style: { top: yPos, left: xPos }, onClick: function (e) { return menuOnClickHandler(e); }, onKeyDown: function (e) { return menuOnKeyDownHandler(e); }, role: "menu" }, children));
     }
     return null;
 };
