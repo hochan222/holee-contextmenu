@@ -28,6 +28,8 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
 
   const handleContextMenu = useCallback(
     (event) => {
+      setXPos(`${event.pageX}px`);
+      setYPos(`${event.pageY}px`);
       if (
         outerRef.current!.getBoundingClientRect().top <= event.pageY &&
         outerRef.current!.getBoundingClientRect().bottom >= event.pageY &&
@@ -39,16 +41,21 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
         const ulBoundingClientRect = $('.holee-menu')?.getBoundingClientRect();
         if (ulBoundingClientRect) {
           const position = findOutOfViewportPosition(ulBoundingClientRect.right, ulBoundingClientRect?.bottom);
+          const ulWidth = ulBoundingClientRect.right - ulBoundingClientRect.left;
+          const ulHeight = ulBoundingClientRect.bottom - ulBoundingClientRect.top;
+
           console.log(position);
+          console.log('page', event.pageX, event.pageY);
+          console.log('ul', ulWidth, ulHeight);
           if (position === 'diagonal') {
-            setXPos(`100px`);
-            setYPos(`${event.pageY}px`);
+            setXPos(`${event.pageX - ulWidth}px`);
+            setYPos(`${event.pageY - ulHeight}px`);
           } else if (position === 'right') {
-            setXPos(`100px`);
+            setXPos(`${event.pageX - ulWidth}px`);
             setYPos(`${event.pageY}px`);
           } else if (position === 'bottom') {
-            setXPos(`100px`);
-            setYPos(`${event.pageY}px`);
+            setXPos(`${event.pageX}px`);
+            setYPos(`${event.pageY - ulHeight}px`);
           } else {
             setXPos(`${event.pageX}px`);
             setYPos(`${event.pageY}px`);

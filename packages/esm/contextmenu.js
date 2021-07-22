@@ -19,6 +19,8 @@ var useContextMenu = function (outerRef) {
     var _c = useState(false), menu = _c[0], showMenu = _c[1];
     var handleContextMenu = useCallback(function (event) {
         var _a;
+        setXPos(event.pageX + "px");
+        setYPos(event.pageY + "px");
         if (outerRef.current.getBoundingClientRect().top <= event.pageY &&
             outerRef.current.getBoundingClientRect().bottom >= event.pageY &&
             outerRef.current.getBoundingClientRect().left <= event.pageX &&
@@ -28,18 +30,22 @@ var useContextMenu = function (outerRef) {
             var ulBoundingClientRect = (_a = $('.holee-menu')) === null || _a === void 0 ? void 0 : _a.getBoundingClientRect();
             if (ulBoundingClientRect) {
                 var position = findOutOfViewportPosition(ulBoundingClientRect.right, ulBoundingClientRect === null || ulBoundingClientRect === void 0 ? void 0 : ulBoundingClientRect.bottom);
+                var ulWidth = ulBoundingClientRect.right - ulBoundingClientRect.left;
+                var ulHeight = ulBoundingClientRect.bottom - ulBoundingClientRect.top;
                 console.log(position);
+                console.log('page', event.pageX, event.pageY);
+                console.log('ul', ulWidth, ulHeight);
                 if (position === 'diagonal') {
-                    setXPos("100px");
-                    setYPos(event.pageY + "px");
+                    setXPos(event.pageX - ulWidth + "px");
+                    setYPos(event.pageY - ulHeight + "px");
                 }
                 else if (position === 'right') {
-                    setXPos("100px");
+                    setXPos(event.pageX - ulWidth + "px");
                     setYPos(event.pageY + "px");
                 }
                 else if (position === 'bottom') {
-                    setXPos("100px");
-                    setYPos(event.pageY + "px");
+                    setXPos(event.pageX + "px");
+                    setYPos(event.pageY - ulHeight + "px");
                 }
                 else {
                     setXPos(event.pageX + "px");
