@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
+* Handle context menu when out of viewpoint (#13) ([d46cde7](https://github.com/hochan222/holee-contextmenu/commit/d46cde76519187f8d1a142b6db0e00937f674914))
 * add MouseEvent type ([98992e7](https://github.com/hochan222/holee-contextmenu/commit/98992e7c1c34e1461becb3340029ed1ff59c7038))
 
 
