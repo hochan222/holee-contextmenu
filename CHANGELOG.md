@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.2.4](https://github.com/hochan222/holee-contextmenu/compare/v1.2.3...v1.2.4) (2021-07-23)
 
+### Bug Fixes
+
+* contextmenu duplicate bug (#16) ([bd89eee](https://github.com/hochan222/holee-contextmenu/commit/bd89eeee5d1a93d9eaf777683375cdffa6aeaeb1))
+
+
 ### [1.2.3](https://github.com/hochan222/holee-contextmenu/compare/v1.2.2...v1.2.3) (2021-07-23)
 
 
