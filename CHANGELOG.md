@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/hochan222/holee-contextmenu/compare/v1.2.1...v1.2.2) (2021-07-23)
+
+
+### Bug Fixes
+
+* Incorrect contextmenu position when scrolling ([#15](https://github.com/hochan222/holee-contextmenu/issues/15)) ([10a4e97](https://github.com/hochan222/holee-contextmenu/commit/10a4e97fc03c309743d802d9ac5d10a533bc08f1))
+
 ### [1.2.1](https://github.com/hochan222/holee-contextmenu/compare/v1.2.0...v1.2.1) (2021-07-23)
 
 
