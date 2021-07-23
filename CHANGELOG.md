@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/hochan222/holee-contextmenu/compare/v1.2.0...v1.2.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* remove console to package ([584c9f8](https://github.com/hochan222/holee-contextmenu/commit/584c9f86ba71ef22491bf0a3f09b03ad96c5110c))
+
+
+### Docs
+
+* changelog ([fb92b8d](https://github.com/hochan222/holee-contextmenu/commit/fb92b8d9f76bebeafbfceb084d234d776e62a8f1))
+
 ## [1.2.0](https://github.com/hochan222/holee-contextmenu/compare/v1.1.1...v1.2.0) (2021-07-23)
 
 
