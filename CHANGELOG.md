@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/hochan222/holee-contextmenu/compare/v1.1.1...v1.2.0) (2021-07-23)
+
+
+### Features
+
+* add MouseEvent type ([98992e7](https://github.com/hochan222/holee-contextmenu/commit/98992e7c1c34e1461becb3340029ed1ff59c7038))
+
+
+### Docs
+
+* project philosophy ([c10df29](https://github.com/hochan222/holee-contextmenu/commit/c10df29379b39ba0766cdc633836808ab78022e1))
+* project philosophy ([6781a24](https://github.com/hochan222/holee-contextmenu/commit/6781a2484512527e9e60aa98fd553f53dd1ee544))
+
 ### [1.1.1](https://github.com/hochan222/holee-contextmenu/compare/v1.1.0...v1.1.1) (2021-07-21)
 
 
