@@ -31,10 +31,10 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
       setXPos(`${event.pageX}px`);
       setYPos(`${event.pageY}px`);
       if (
-        outerRef.current!.getBoundingClientRect().top <= event.clientY &&
-        outerRef.current!.getBoundingClientRect().bottom >= event.clientY &&
-        outerRef.current!.getBoundingClientRect().left <= event.clientX &&
-        outerRef.current!.getBoundingClientRect().right >= event.clientX
+        outerRef.current!.getBoundingClientRect().top < event.clientY &&
+        outerRef.current!.getBoundingClientRect().bottom > event.clientY &&
+        outerRef.current!.getBoundingClientRect().left < event.clientX &&
+        outerRef.current!.getBoundingClientRect().right > event.clientX
       ) {
         event.preventDefault();
         showMenu(true);
