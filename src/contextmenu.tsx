@@ -44,9 +44,6 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
           const ulWidth = ulBoundingClientRect.right - ulBoundingClientRect.left;
           const ulHeight = ulBoundingClientRect.bottom - ulBoundingClientRect.top;
 
-          console.log(position);
-          console.log('page', event.pageX, event.pageY);
-          console.log('ul', ulWidth, ulHeight);
           if (position === 'diagonal') {
             setXPos(`${event.pageX - ulWidth}px`);
             setYPos(`${event.pageY - ulHeight}px`);
