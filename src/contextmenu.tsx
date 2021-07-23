@@ -8,6 +8,19 @@ export interface ContextMenuProps {
   children: ReactNode;
 }
 
+const findOutOfViewportPosition = (rightPosition: number, bottomPosition: number): string => {
+  if (window.innerWidth <= rightPosition && window.innerHeight <= bottomPosition) {
+    return 'diagonal';
+  } else if (window.innerWidth <= rightPosition) {
+    return 'right';
+  } else if (window.innerHeight <= bottomPosition) {
+    return 'bottom';
+  }
+  return '';
+};
+
+const $ = (selector: string) => document.querySelector(selector);
+
 const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
   const [xPos, setXPos] = useState('0px');
   const [yPos, setYPos] = useState('0px');
@@ -25,6 +38,26 @@ const useContextMenu = (outerRef: React.RefObject<HTMLDivElement>) => {
       ) {
         event.preventDefault();
         showMenu(true);
+        const ulBoundingClientRect = $('.holee-menu')?.getBoundingClientRect();
+        if (ulBoundingClientRect) {
+          const position = findOutOfViewportPosition(ulBoundingClientRect.right, ulBoundingClientRect?.bottom);
+          const ulWidth = ulBoundingClientRect.right - ulBoundingClientRect.left;
+          const ulHeight = ulBoundingClientRect.bottom - ulBoundingClientRect.top;
+
+          if (position === 'diagonal') {
+            setXPos(`${event.pageX - ulWidth}px`);
+            setYPos(`${event.pageY - ulHeight}px`);
+          } else if (position === 'right') {
+            setXPos(`${event.pageX - ulWidth}px`);
+            setYPos(`${event.pageY}px`);
+          } else if (position === 'bottom') {
+            setXPos(`${event.pageX}px`);
+            setYPos(`${event.pageY - ulHeight}px`);
+          } else {
+            setXPos(`${event.pageX}px`);
+            setYPos(`${event.pageY}px`);
+          }
+        }
       } else {
         showMenu(false);
       }

@@ -22,11 +22,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContextMenu = void 0;
 var react_1 = __importStar(require("react"));
 require("./contextmenu.css");
+var findOutOfViewportPosition = function (rightPosition, bottomPosition) {
+    if (window.innerWidth <= rightPosition && window.innerHeight <= bottomPosition) {
+        return 'diagonal';
+    }
+    else if (window.innerWidth <= rightPosition) {
+        return 'right';
+    }
+    else if (window.innerHeight <= bottomPosition) {
+        return 'bottom';
+    }
+    return '';
+};
+var $ = function (selector) { return document.querySelector(selector); };
 var useContextMenu = function (outerRef) {
     var _a = react_1.useState('0px'), xPos = _a[0], setXPos = _a[1];
     var _b = react_1.useState('0px'), yPos = _b[0], setYPos = _b[1];
     var _c = react_1.useState(false), menu = _c[0], showMenu = _c[1];
     var handleContextMenu = react_1.useCallback(function (event) {
+        var _a;
         setXPos(event.pageX + "px");
         setYPos(event.pageY + "px");
         if (outerRef.current.getBoundingClientRect().top <= event.pageY &&
@@ -35,6 +49,31 @@ var useContextMenu = function (outerRef) {
             outerRef.current.getBoundingClientRect().right >= event.pageX) {
             event.preventDefault();
             showMenu(true);
+            var ulBoundingClientRect = (_a = $('.holee-menu')) === null || _a === void 0 ? void 0 : _a.getBoundingClientRect();
+            if (ulBoundingClientRect) {
+                var position = findOutOfViewportPosition(ulBoundingClientRect.right, ulBoundingClientRect === null || ulBoundingClientRect === void 0 ? void 0 : ulBoundingClientRect.bottom);
+                var ulWidth = ulBoundingClientRect.right - ulBoundingClientRect.left;
+                var ulHeight = ulBoundingClientRect.bottom - ulBoundingClientRect.top;
+                console.log(position);
+                console.log('page', event.pageX, event.pageY);
+                console.log('ul', ulWidth, ulHeight);
+                if (position === 'diagonal') {
+                    setXPos(event.pageX - ulWidth + "px");
+                    setYPos(event.pageY - ulHeight + "px");
+                }
+                else if (position === 'right') {
+                    setXPos(event.pageX - ulWidth + "px");
+                    setYPos(event.pageY + "px");
+                }
+                else if (position === 'bottom') {
+                    setXPos(event.pageX + "px");
+                    setYPos(event.pageY - ulHeight + "px");
+                }
+                else {
+                    setXPos(event.pageX + "px");
+                    setYPos(event.pageY + "px");
+                }
+            }
         }
         else {
             showMenu(false);
@@ -58,14 +97,11 @@ var ContextMenu = function (_a) {
     var _b = useContextMenu(outerRef), xPos = _b.xPos, yPos = _b.yPos, menu = _b.menu, showMenu = _b.showMenu;
     var menuOnClickHandler = function (e) {
         e.stopPropagation();
-        console.log(e.currentTarget.offsetHeight);
         menuOnClick(e);
         showMenu(false);
     };
     var menuOnKeyDownHandler = function (e) {
         e.stopPropagation();
-        console.log(e.currentTarget.offsetHeight);
-        console.log(e.currentTarget.offsetWidth);
         menuOnClick(e);
         showMenu(false);
     };
