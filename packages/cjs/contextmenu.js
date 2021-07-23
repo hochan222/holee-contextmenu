@@ -54,9 +54,6 @@ var useContextMenu = function (outerRef) {
                 var position = findOutOfViewportPosition(ulBoundingClientRect.right, ulBoundingClientRect === null || ulBoundingClientRect === void 0 ? void 0 : ulBoundingClientRect.bottom);
                 var ulWidth = ulBoundingClientRect.right - ulBoundingClientRect.left;
                 var ulHeight = ulBoundingClientRect.bottom - ulBoundingClientRect.top;
-                console.log(position);
-                console.log('page', event.pageX, event.pageY);
-                console.log('ul', ulWidth, ulHeight);
                 if (position === 'diagonal') {
                     setXPos(event.pageX - ulWidth + "px");
                     setYPos(event.pageY - ulHeight + "px");
