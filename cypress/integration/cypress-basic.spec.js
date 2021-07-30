@@ -1,9 +1,15 @@
-describe('initial page behavior', () => {
+describe('holee-contextmenu basic test code', () => {
   beforeEach(() => {
     cy.visit('/');
   });
-  it('input값 입력 했을때 잘 들어가는지 확인', () => {
-    // cy.get('.w-100[type=text]').type('holee');
-    // cy.get('.w-100[type=text]').should('have.value', 'holee');
+  it('Render contextmenu, when right-clicking on the (10px, 10px) position of the .red-box', () => {
+    cy.get('.holee-menu').should('not.exist');
+    cy.get('.red-box').rightclick(10, 10);
+    cy.get('.holee-menu').should('exist');
+  });
+  it('Render contextmenu, when right-clicking on the (200px, 100px) position of the .red-box', () => {
+    cy.get('.holee-menu').should('not.exist');
+    cy.get('.red-box').rightclick(200, 100);
+    cy.get('.holee-menu').should('exist');
   });
 });
